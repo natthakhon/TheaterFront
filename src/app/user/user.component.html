@@ -46,14 +46,23 @@
                     <mat-form-field class="field-width" appearance="outline">
                         <mat-label>Password</mat-label>
                         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                        <mat-hint *ngIf="userForm.controls['password'].hasError('password')" >
+                            Password must contain at least 1 number, 1 special character, 1 capital with total of 10 character length
+                        </mat-hint>
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
+                        <mat-error *ngIf="userForm.controls['password'].hasError('password') && !userForm.controls['password'].hasError('required')">
+                            Password must contain at least 1 number, 1 special character, 1 capital with total of 10 character length
+                        </mat-error> 
+                        <mat-error *ngIf="userForm.controls['password'].hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
                     </mat-form-field>
                 </div>          
                 <div>
-                    <button class="field-width" mat-raised-button color="primary">Submit</button>
-                </div>      
+                    <button class="field-width" mat-raised-button color="primary" [disabled] = "!userForm.valid" (click)="submit()">Submit</button>
+                </div>    
             </mat-card-content>
         </mat-card>
     </div>

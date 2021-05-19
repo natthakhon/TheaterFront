@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,8 +23,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatSnackBarModule } from '@angular/material/snack-bar';
 import { UserComponent } from './user/user.component';
-
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { UserComponent } from './user/user.component';
     MatSortModule,
     MatGridListModule,
     MatMenuModule,
+    MatSnackBarModule ,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
