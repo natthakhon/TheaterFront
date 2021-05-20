@@ -1,4 +1,7 @@
 <form [formGroup]="userForm" >
+    <div class="spinner" *ngIf="isSpinnerVisible">
+        <mat-spinner></mat-spinner>
+    </div>
     <div>
         <mat-card class="shipping-card">
             <mat-card-title>Sign Up</mat-card-title>
@@ -20,7 +23,7 @@
                         <mat-label>Phone</mat-label>
                         <input matInput placeholder="Phone" formControlName="phone">
                     </mat-form-field>
-                </div>
+                </div>                
                 <div>
                     <mat-form-field class="field-width" appearance="outline" >
                         <mat-label>Email</mat-label>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators } from '@angular/forms'
+import {FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ErrorStateMatcher } from '@angular/material/core';
 import {CustomErrorStateMatcher} from 'src/app/validation/CustomErrorStateMatcher';
 import {FormValidators} from 'src/app/validation/FormValidators'
@@ -19,30 +19,34 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 
 export class UserComponent implements OnInit {
   hide = true;
+  userForm!: FormGroup;  
+  isSpinnerVisible:boolean= false ;
 
-  userForm = this.fb.group({
-    name:[''],
-    lastname:[''],
-    email:['',[
-      Validators.required,
-      Validators.email
-      ]
-    ],
-    phone:[''],
-    user:[null,Validators.required],
-    password:['',[
-      Validators.required,
-      FormValidators.PasswordValidator
-      ]
-    ]
-  });
-  
   constructor(private fb: FormBuilder, 
     private http:HttpClient,
-    private snackBar: MatSnackBar) 
-    { }
+    private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
+    this.iniForm();
+  }
+
+  iniForm(){
+    this.userForm = this.fb.group({
+      name:[''],
+      lastname:[''],
+      email:['',[
+        Validators.required,
+        Validators.email
+        ]
+      ],
+      phone:[''],
+      user:[null,Validators.required],
+      password:['',[
+        Validators.required,
+        FormValidators.PasswordValidator
+        ]
+      ]
+    });
   }
 
   submit(){
@@ -53,12 +57,13 @@ export class UserComponent implements OnInit {
       this.userForm.controls["email"].value,
       this.userForm.controls["user"].value,
       this.userForm.controls["password"].value);
-    
-    console.log(user);
+
     const service = new UserService(this.http);
+    this.isSpinnerVisible = true;
     service.addUser(user).subscribe(data=>{
       this.snackBar.open("Saved", "OK");
+      this.isSpinnerVisible = false;
+      this.iniForm();
     });
   }
-
 }

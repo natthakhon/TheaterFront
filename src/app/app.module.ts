@@ -24,6 +24,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import { UserComponent } from './user/user.component';
 
 @NgModule({
@@ -52,6 +53,7 @@ import { UserComponent } from './user/user.component';
     MatSortModule,
     MatGridListModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
     MatSnackBarModule ,
     FormsModule,
     HttpClientModule,
