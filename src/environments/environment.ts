@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiurl: 'https://localhost:44340/api/',
+  apiurl: 'https://localhost:44373/api/',
   urlsuffix:{
     user:{
       create: 'user',
