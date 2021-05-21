@@ -10,15 +10,23 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 
   private url:string = environment.apiurl;
-  private headers: Headers = new Headers({});
+  //private headers: Headers = new Headers({});
 
   
   constructor(private http: HttpClient) {
-    this.headers.append('Content-Type','application/x-www-form-urlencoded');
-    this.headers.append('Content-Type','application/json');
+    //this.headers.append('Content-Type','application/x-www-form-urlencoded');
+    //this.headers.append('Content-Type','application/json');
    }
 
   addUser(user:User): Observable<User>{
-    return this.http.post<User>(this.url+environment.urlsuffix.user.create, user);
+    return this.http.post<User>(this.url+environment.urlsuffix.user.user, user);
+  }
+
+  getUserByEmail(email:string,password:string){
+    return this.http.get<User>(this.url+environment.urlsuffix.user.user+'/'+email+'/'+password+'/0');
+  }
+
+  getUserByUser(user:string,password:string){
+    return this.http.get<User>(this.url+environment.urlsuffix.user.user+'/'+user+'/'+password);
   }
 }

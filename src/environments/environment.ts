@@ -7,7 +7,7 @@ export const environment = {
   apiurl: 'https://localhost:44373/api/',
   urlsuffix:{
     user:{
-      create: 'user',
+      user: 'user',
     }
   }
 };

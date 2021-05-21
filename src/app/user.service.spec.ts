@@ -30,7 +30,7 @@ describe('UserService', () => {
     service.addUser(user).subscribe(res=>{
       expect(res.name).toEqual(user.name);
     })
-    const request = httpTestingController.expectOne(environment.apiurl+environment.urlsuffix.user.create);
+    const request = httpTestingController.expectOne(environment.apiurl+environment.urlsuffix.user.user);
     expect(request.request.method).toBe('POST');
     request.flush(user);
   })
