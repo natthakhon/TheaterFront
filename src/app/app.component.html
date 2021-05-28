@@ -20,13 +20,9 @@
 <div>
     <mat-drawer-container class="example-container" autosize>
         <mat-drawer #drawer class="example-sidenav" mode="side">
-          <p>Auto-resizing sidenav</p>
-          <p *ngIf="showFiller">
-              Lorem, ipsum dolor sit amet consectetur.
-          </p>
-          <button (click)="showFiller = !showFiller" mat-raised-button>
-            Toggle extra text
-          </button>
+          <div>
+            <a mat-button routerLink="/movie">Movie Administration</a>
+          </div>
         </mat-drawer>      
         <router-outlet></router-outlet>
     </mat-drawer-container>
