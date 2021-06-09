@@ -14,8 +14,6 @@ export class UserService {
 
   
   constructor(private http: HttpClient) {
-    //this.headers.append('Content-Type','application/x-www-form-urlencoded');
-    //this.headers.append('Content-Type','application/json');
    }
 
   addUser(user:User): Observable<User>{

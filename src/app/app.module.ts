@@ -25,16 +25,23 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatExpansionModule} from '@angular/material/expansion';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { MovieComponent } from './movie/movie.component';
+import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
+import { TheaterComponent } from './theater/theater.component';
+import { SearchComponentComponent } from './search-component/search-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     LoginComponent,
-    MovieComponent
+    MovieComponent,
+    MovieDashboardComponent,
+    TheaterComponent,
+    SearchComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +66,7 @@ import { MovieComponent } from './movie/movie.component';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatSnackBarModule ,
+    MatExpansionModule,
     FormsModule,
     HttpClientModule,
   ],

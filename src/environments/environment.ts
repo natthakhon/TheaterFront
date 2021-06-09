@@ -8,6 +8,9 @@ export const environment = {
   urlsuffix:{
     user:{
       user: 'user',
+    },
+    movie:{
+      movie: 'movie'
     }
   }
 };

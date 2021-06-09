@@ -1,0 +1,19 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h2>Movie</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-movie></app-movie>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h2>Theater</h2>
+        </mat-panel-title>        
+      </mat-expansion-panel-header>
+      <app-theater></app-theater>      
+    </mat-expansion-panel>
+  </mat-accordion>
