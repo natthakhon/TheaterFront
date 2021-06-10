@@ -31,7 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { MovieComponent } from './movie/movie.component';
 import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
 import { TheaterComponent } from './theater/theater.component';
-import { SearchComponentComponent } from './search-component/search-component.component';
+import { MoviesearchComponent } from './moviesearch/moviesearch.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { SearchComponentComponent } from './search-component/search-component.co
     MovieComponent,
     MovieDashboardComponent,
     TheaterComponent,
-    SearchComponentComponent
+    MoviesearchComponent
   ],
   imports: [
     BrowserModule,
