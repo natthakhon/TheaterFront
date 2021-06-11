@@ -1,9 +1,5 @@
 import { Observable } from "rxjs";
 
-export interface IServiceCaller<T>{
-    (url:string):Observable<T>
-}
-
 export class Search<T>{
     searchText : string
     searchMap : Map<string,string>
@@ -18,7 +14,7 @@ export class Search<T>{
         this.selectedmap = ''
     }
 
-    getresult(caller:IServiceCaller<T> ):Observable<T>{
+    getresult(caller:Function ):Observable<T>{
         if (this.showall)
             return caller(this.showallurl);
         else{

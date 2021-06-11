@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { HttpClient,} from '@angular/common/http';
 import {CustomErrorStateMatcher} from 'src/app/validation/CustomErrorStateMatcher';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { Movie } from '../viewmodel/Movie';
+import { Movie } from 'src/app/viewmodel/movie';
 import {MovieService} from 'src/app/services/movieservice.service'
 import {MatSnackBar} from '@angular/material/snack-bar';
 

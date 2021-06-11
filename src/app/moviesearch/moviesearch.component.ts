@@ -1,9 +1,11 @@
 import {MatTableDataSource} from '@angular/material/table';
-import { Component, OnInit,AfterViewInit,ViewChild } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { Observable,  } from 'rxjs';
 import {Search} from 'src/app/viewmodel/search'
 import {MatPaginator} from '@angular/material/paginator';
-import { Movie } from '../viewmodel/Movie';
+import { HttpClient,} from '@angular/common/http';
+import { Movie } from '../viewmodel/movie';
+import {MovieService} from 'src/app/services/movieservice.service'
 
 @Component({
   selector: 'app-moviesearch',
@@ -17,27 +19,23 @@ export class MoviesearchComponent implements OnInit {
   datasource! : MatTableDataSource<Movie>;
   displayedColumns: string[] = ['moviename'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  searchValue!: string;
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   ngAfterViewInit() {
-    this.datasource.paginator = this.paginator;
+    
   }
 
   ngOnInit(): void {
-    this.result = this.search.getresult(sdgfvd =>
-    {
-      const m = new Movie();
-      m.moviename = '1111';
-      const m1 = new Movie();
-      m1.moviename = '222';
-      return of([
-        m,m1
-      ]);
-    });
-
+    const service = new MovieService(this.http);
+    this.result = this.search.getresult(()=>{
+      return service.getAll();
+    })  
+    
     this.result.subscribe(p=>{
       this.datasource = new MatTableDataSource<Movie>(p)
+      this.datasource.paginator = this.paginator;
     });
   }
 
