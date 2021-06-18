@@ -9,6 +9,9 @@ export const environment = {
     user:{
       user: 'user',
     },
+    login:{
+      login: 'login'
+    },
     movie:{
       movie: 'movie'
     }
