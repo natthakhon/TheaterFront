@@ -12,3 +12,13 @@
     padding-left: 34.2%;
     color: blue;
 }
+
+@media screen and (max-width: 600px) {
+    .field-width {
+      width: 70%; 
+    }
+    .singup{
+        padding-left: 16%;
+    }
+}
+

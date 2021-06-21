@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ErrorStateMatcher } from '@angular/material/core';
 import {CustomErrorStateMatcher} from 'src/app/validation/CustomErrorStateMatcher';
@@ -9,6 +9,7 @@ import {LoginService} from 'src/app/services/login.service'
 import {Login} from 'src/app/viewmodel/login'
 import {User} from 'src/app/viewmodel/user'
 import { v4 as uuidv4 } from 'uuid';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -22,13 +23,15 @@ export class LoginComponent implements OnInit {
 
   isSpinnerVisible:boolean= false;
   hide = true;
-  loginForm!: FormGroup;
+  loginForm!: FormGroup;  
 
   constructor(private fb: FormBuilder,
     private http:HttpClient,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar,
+    private router:Router) { }
 
   ngOnInit(): void {
+    
     this.iniForm();
   }
 
@@ -47,7 +50,9 @@ export class LoginComponent implements OnInit {
       .subscribe(data=>{
         if (data != null){
           found = true;
-          this.login(data);
+          if (this.login(data)){            
+            this.router.navigate(['/moviedashboard']);
+          }
         }
       }
       ,()=>{this.isSpinnerVisible = false;}
@@ -57,7 +62,9 @@ export class LoginComponent implements OnInit {
           .subscribe(data=>{
             if (data != null){
               found = true;
-              this.login(data);
+              if (this.login(data)){                
+                this.router.navigate(['/moviedashboard']);
+              }
             }
           }
           ,()=>{this.isSpinnerVisible = false;}
@@ -76,10 +83,13 @@ export class LoginComponent implements OnInit {
     let login = new Login(uuidv4(),user,new Date(),false);
     service.addlogin(login).subscribe(data=>{
       if(data!=null){
+        console.log('11111');
         return true;
       }
+      console.log('22222');
       return false;
     })
+    console.log('333333');
     return false;
   }
 }

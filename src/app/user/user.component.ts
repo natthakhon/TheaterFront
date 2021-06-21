@@ -64,6 +64,9 @@ export class UserComponent implements OnInit {
       this.snackBar.open("Saved", "OK");
       this.isSpinnerVisible = false;
       this.iniForm();
+    },err=>{
+      this.isSpinnerVisible = false;
+      this.snackBar.open("Error", "OK");
     });
   }
 }
