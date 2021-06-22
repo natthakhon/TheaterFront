@@ -1,3 +1,6 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <form [formGroup]="movieForm">
     <div class="spinner" *ngIf="isSpinnerVisible">
         <mat-spinner></mat-spinner>
@@ -13,7 +16,7 @@
             </mat-form-field>
         </div>
         <div>
-            <button  mat-raised-button color="primary" [disabled] = "!movieForm.valid" (click)="addmovie()" >Add Movie</button>
+            <button mat-raised-button color="primary" [disabled] = "!movieForm.valid" (click)="addmovie()" >Add Movie</button>
         </div>
     </div>
     <div class="right">

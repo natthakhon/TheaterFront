@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ErrorStateMatcher } from '@angular/material/core';
 import {CustomErrorStateMatcher} from 'src/app/validation/CustomErrorStateMatcher';
@@ -50,9 +50,7 @@ export class LoginComponent implements OnInit {
       .subscribe(data=>{
         if (data != null){
           found = true;
-          if (this.login(data)){            
-            this.router.navigate(['/moviedashboard']);
-          }
+          this.login(data)
         }
       }
       ,()=>{this.isSpinnerVisible = false;}
@@ -62,9 +60,7 @@ export class LoginComponent implements OnInit {
           .subscribe(data=>{
             if (data != null){
               found = true;
-              if (this.login(data)){                
-                this.router.navigate(['/moviedashboard']);
-              }
+              this.login(data)
             }
           }
           ,()=>{this.isSpinnerVisible = false;}
@@ -78,18 +74,11 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  login(user:User):boolean{
+  login(user:User){
     const service = new LoginService(this.http);
     let login = new Login(uuidv4(),user,new Date(),false);
-    service.addlogin(login).subscribe(data=>{
-      if(data!=null){
-        console.log('11111');
-        return true;
-      }
-      console.log('22222');
-      return false;
+    service.addlogin(login).subscribe(data=>{},()=>{},()=>{
+      this.router.navigate(['/moviedashboard'],{ queryParams: { id: login.loginid } });
     })
-    console.log('333333');
-    return false;
   }
 }
