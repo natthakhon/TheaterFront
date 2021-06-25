@@ -30,13 +30,15 @@ export class MovieComponent implements OnInit {
 
   iniMovieForm(){
     this.movieForm = this.fb.group({
-      name:['',Validators.required]
+      name:['',Validators.required],
+      length:['',Validators.required]
     });
   }
 
   addmovie(){
     let movie = new Movie();
     movie.moviename = this.movieForm.get('name')?.value;
+    movie.Length = this.movieForm.get('length')?.value;
 
     const service = new MovieService(this.http);
     this.isSpinnerVisible = true;

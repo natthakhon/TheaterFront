@@ -13,9 +13,14 @@
         </span>
         <span class="example-spacer"></span>
         <span>
+          <div *ngIf="username">
+            <span class="user"><label #user>{{username}}</label></span>
+          </div>
+          <div>
             <span class="material-icons">
-                logout
-            </span>
+              logout
+          </span>
+          </div>
         </span>
       </mat-toolbar-row>
     </mat-toolbar>
@@ -24,7 +29,7 @@
     <mat-drawer-container class="example-container" autosize>
         <mat-drawer #drawer class="example-sidenav" mode="side">
           <div>
-            <a mat-button routerLink="/moviedashboard">Movie Administration</a>
+            <a mat-button routerLink="/moviedashboard">Administration</a>
           </div>
         </mat-drawer>      
         <router-outlet (activate)="onRouterOutletActivate($event)"></router-outlet>

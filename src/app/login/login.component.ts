@@ -30,9 +30,8 @@ export class LoginComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router:Router) { }
 
-  ngOnInit(): void {
-    
-    this.iniForm();
+  ngOnInit(): void {    
+    this.iniForm();    
   }
 
   iniForm(){
@@ -78,7 +77,7 @@ export class LoginComponent implements OnInit {
     const service = new LoginService(this.http);
     let login = new Login(uuidv4(),user,new Date(),false);
     service.addlogin(login).subscribe(data=>{},()=>{},()=>{
-      this.router.navigate(['/moviedashboard'],{ queryParams: { id: login.loginid } });
+      this.router.navigate(['/moviedashboard'],{ queryParams: { id: login.loginId } });
     })
   }
 }

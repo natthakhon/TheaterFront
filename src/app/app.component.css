@@ -19,6 +19,14 @@
     padding: 20px;
 }
 
+.user{
+    font-size: xx-small;
+    padding-right: 1em;
+}
+.icon{
+    padding-top: 1em;
+}
+
 @media screen and (max-width: 600px) {
     
 }

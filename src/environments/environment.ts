@@ -13,7 +13,8 @@ export const environment = {
       login: 'login'
     },
     movie:{
-      movie: 'movie'
+      movie: 'movie',
+      login: 'login'
     }
   }
 };

@@ -5,13 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './movie-dashboard.component.html',
   styleUrls: ['./movie-dashboard.component.css']
 })
-export class MovieDashboardComponent implements OnInit {
+export class MovieDashboardComponent implements OnInit  {
 
   panelOpenState = false;
+  logid!:string
   
-  constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
 
 }

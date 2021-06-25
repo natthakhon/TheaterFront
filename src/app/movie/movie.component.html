@@ -14,8 +14,15 @@
                     Movie name <strong>required</strong>
                 </mat-error>                                                       
             </mat-form-field>
+            <mat-form-field appearance="outline" >
+                <mat-label>Movie Length(mins)</mat-label>
+                <input type="number" matInput placeholder="Movie Length(mins)" formControlName="length" >             
+                <mat-error *ngIf="movieForm.controls['length'].hasError('required')">
+                    Movie length <strong>required</strong>
+                </mat-error>                                                       
+            </mat-form-field>
         </div>
-        <div>
+        <div class="button">
             <button mat-raised-button color="primary" [disabled] = "!movieForm.valid" (click)="addmovie()" >Add Movie</button>
         </div>
     </div>
